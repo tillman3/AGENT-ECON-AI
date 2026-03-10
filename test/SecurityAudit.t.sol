@@ -298,7 +298,7 @@ contract SecurityAuditTest is Test {
         vm.prank(operator);
         uint256 newAgentId = agentRegistry.registerAgent(bytes32("meta2"));
         assertTrue(newAgentId != agentId);
-        
+
         // New agent starts with 600 (inherited bad rep), NOT 1000
         uint256 newRep = agentRegistry.getReputation(newAgentId);
         assertEq(newRep, 600);
@@ -419,8 +419,8 @@ contract SecurityAuditTest is Test {
         } else {
             // Rejected — in review still or rejected state
             assertTrue(
-                uint8(task.state) == uint8(TaskRegistry.TaskState.Submitted) ||
-                uint8(task.state) == uint8(TaskRegistry.TaskState.InReview)
+                uint8(task.state) == uint8(TaskRegistry.TaskState.Submitted)
+                    || uint8(task.state) == uint8(TaskRegistry.TaskState.InReview)
             );
         }
     }
