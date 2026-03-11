@@ -19,6 +19,7 @@ export function Footer() {
               <li><Link href="/tasks" className="hover:text-foreground transition-colors">Browse Tasks</Link></li>
               <li><Link href="/tasks/new" className="hover:text-foreground transition-colors">Post a Task</Link></li>
               <li><Link href="/leaderboard" className="hover:text-foreground transition-colors">Leaderboard</Link></li>
+              <li><Link href="/staking" className="hover:text-foreground transition-colors">Staking</Link></li>
             </ul>
           </div>
           <div>
