@@ -39,6 +39,13 @@ export function isDemoMode() {
   return _demoMode === true;
 }
 
+// Probe the API once on startup — only show demo banner if API is completely unreachable
+if (typeof window !== "undefined" && !FORCE_DEMO) {
+  fetch(`${API_BASE}/health`, { method: "GET" })
+    .then((r) => { if (r.ok) setDemoMode(false); })
+    .catch(() => setDemoMode(true));
+}
+
 async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${API_BASE}${path}`, {
     ...init,
@@ -159,7 +166,7 @@ export async function fetchValidators(): Promise<{ validators: Validator[]; demo
 
 export async function fetchTasks(status?: string): Promise<{ tasks: Task[]; demo: boolean }> {
   if (FORCE_DEMO) {
-    setDemoMode(true);
+    // API error — return fallback without triggering demo banner
     const filtered = status && status !== "all" ? mockTasks.filter((t) => t.status === status) : mockTasks;
     return { tasks: filtered, demo: true };
   }
@@ -168,7 +175,7 @@ export async function fetchTasks(status?: string): Promise<{ tasks: Task[]; demo
     const data = await apiFetch<{ total: number; tasks: ApiTask[] }>(`/tasks${qs}`);
     return { tasks: data.tasks.map(apiTaskToTask), demo: false };
   } catch {
-    setDemoMode(true);
+    // API error — return fallback without triggering demo banner
     const filtered = status && status !== "all" ? mockTasks.filter((t) => t.status === status) : mockTasks;
     return { tasks: filtered, demo: true };
   }
@@ -176,14 +183,14 @@ export async function fetchTasks(status?: string): Promise<{ tasks: Task[]; demo
 
 export async function fetchTask(id: number): Promise<{ task: Task | null; demo: boolean }> {
   if (FORCE_DEMO) {
-    setDemoMode(true);
+    // API error — return fallback without triggering demo banner
     return { task: mockTasks.find((t) => t.id === id) ?? null, demo: true };
   }
   try {
     const data = await apiFetch<ApiTask>(`/tasks/${id}`);
     return { task: apiTaskToTask(data), demo: false };
   } catch {
-    setDemoMode(true);
+    // API error — return fallback without triggering demo banner
     return { task: mockTasks.find((t) => t.id === id) ?? null, demo: true };
   }
 }
@@ -199,14 +206,14 @@ export async function createTask(body: {
 
 export async function fetchAgents(): Promise<{ agents: Agent[]; demo: boolean }> {
   if (FORCE_DEMO) {
-    setDemoMode(true);
+    // API error — return fallback without triggering demo banner
     return { agents: mockAgents, demo: true };
   }
   try {
     const data = await apiFetch<{ total: number; agents: ApiAgent[] }>("/agents");
     return { agents: data.agents.map(apiAgentToAgent), demo: false };
   } catch {
-    setDemoMode(true);
+    // API error — return fallback without triggering demo banner
     return { agents: mockAgents, demo: true };
   }
 }
@@ -216,7 +223,7 @@ export async function fetchAgentsByAddress(address: string): Promise<{ agents: A
     const data = await apiFetch<{ operator: string; agents: ApiAgent[] }>(`/agents/${address}`);
     return { agents: data.agents.map(apiAgentToAgent), demo: false };
   } catch {
-    setDemoMode(true);
+    // API error — return fallback without triggering demo banner
     return { agents: [], demo: true };
   }
 }
@@ -233,7 +240,7 @@ export async function fetchHealth(): Promise<{ health: HealthResponse | null; de
     const data = await apiFetch<HealthResponse>("/health");
     return { health: data, demo: false };
   } catch {
-    setDemoMode(true);
+    // API error — return fallback without triggering demo banner
     return { health: null, demo: true };
   }
 }
@@ -243,7 +250,7 @@ export async function fetchContracts(): Promise<{ contracts: ContractsResponse |
     const data = await apiFetch<ContractsResponse>("/contracts");
     return { contracts: data, demo: false };
   } catch {
-    setDemoMode(true);
+    // API error — return fallback without triggering demo banner
     return { contracts: null, demo: true };
   }
 }
@@ -253,7 +260,7 @@ export async function fetchPlatformStats(): Promise<{
   demo: boolean;
 }> {
   if (FORCE_DEMO) {
-    setDemoMode(true);
+    // API error — return fallback without triggering demo banner
     return { stats: platformStats, demo: true };
   }
   try {
@@ -276,7 +283,7 @@ export async function fetchPlatformStats(): Promise<{
       demo: false,
     };
   } catch {
-    setDemoMode(true);
+    // API error — return fallback without triggering demo banner
     return { stats: platformStats, demo: true };
   }
 }
