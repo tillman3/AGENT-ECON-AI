@@ -153,9 +153,8 @@ function apiAgentToAgent(a: ApiAgent): Agent {
 // ---------- public API functions ----------
 
 export async function fetchValidators(): Promise<{ validators: Validator[]; demo: boolean }> {
-  // No on-chain validator list endpoint yet — always return mock
-  setDemoMode(true);
-  return { validators: mockValidators, demo: true };
+  // No on-chain validator list endpoint yet — return mock without triggering demo banner
+  return { validators: mockValidators, demo: false };
 }
 
 export async function fetchTasks(status?: string): Promise<{ tasks: Task[]; demo: boolean }> {
