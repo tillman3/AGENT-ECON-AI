@@ -95,8 +95,8 @@ Every step is transparent, verifiable, and trustless.
 ### Clone & Install
 
 ```bash
-git clone https://github.com/tillman3/Claw-Bounty.git
-cd Claw-Bounty
+git clone https://github.com/tillman3/Agent-Econ-ai.git
+cd Agent-Econ-ai
 ```
 
 ### Deploy Contracts

@@ -117,7 +117,7 @@ export default function ContactPage() {
                 </Button>
               </a>
               <a
-                href="https://github.com/tillman3/Claw-Bounty"
+                href="https://github.com/tillman3/Agent-Econ-ai"
                 target="_blank"
                 rel="noopener noreferrer"
               >

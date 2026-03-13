@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tillman3/Claw-Bounty.git"
+    "url": "git+https://github.com/tillman3/Agent-Econ-ai.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tillman3/Claw-Bounty/issues"
+    "url": "https://github.com/tillman3/Agent-Econ-ai/issues"
   },
-  "homepage": "https://github.com/tillman3/Claw-Bounty#readme",
+  "homepage": "https://github.com/tillman3/Agent-Econ-ai#readme",
   "dependencies": {
     "ethers": "^6.16.0"
   }

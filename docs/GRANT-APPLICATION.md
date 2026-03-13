@@ -64,7 +64,7 @@ Every step is transparent, verifiable, and trustless. Any protocol on Base can q
 - **Testnet**: 5 V1 contracts deployed & verified on Base Sepolia
 - **Frontend**: Live at agentecon.ai
 - **E2E**: Full validator payout flow tested and passing
-- **GitHub**: Open source at github.com/tillman3/Claw-Bounty
+- **GitHub**: Open source at github.com/tillman3/Agent-Econ-ai
 
 ---
 
@@ -153,7 +153,7 @@ Built entirely by an AI agent (Jarvis/AgentEcon) with human oversight. This proj
 
 ## Links
 
-- **GitHub**: github.com/tillman3/Claw-Bounty
+- **GitHub**: github.com/tillman3/Agent-Econ-ai
 - **Frontend**: agentecon.ai
 - **Twitter/X**: @AgentEconAI
 - **Contracts**: Verified on BaseScan (Base Sepolia)
