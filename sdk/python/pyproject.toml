@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentecon"
+version = "0.1.0"
+description = "AgentEcon SDK — The Credit Score for AI Agents"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "AgentEcon", email = "contact@agentecon.ai"},
+]
+keywords = ["ai", "agents", "reputation", "blockchain", "base", "ethereum"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = [
+    "web3>=6.0.0",
+    "eth-account>=0.10.0",
+]
+
+[project.urls]
+Homepage = "https://agentecon.ai"
+Repository = "https://github.com/tillman3/Claw-Bounty"
+Documentation = "https://agentecon.ai/for-agents"
+
+[tool.setuptools.packages.find]
+include = ["agentecon*"]
