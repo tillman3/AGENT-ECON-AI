@@ -131,7 +131,7 @@ const faqSections: FAQSection[] = [
       {
         question: "How much does a validator need to stake?",
         answer:
-          "Minimum stake is 1,000 $AECON. Higher stakes increase your chance of being selected for validation panels and earn proportionally more rewards. There's a 7-day cooldown period before you can unstake.",
+          "Minimum stake is 0.1 ETH on the ValidatorPoolV2 contract. Your stake is your skin in the game — it gets slashed if you score dishonestly. There's a 7-day cooldown period before you can unstake. A separate $AECON staking mechanism (1,000 AECON minimum) is available through the ValidatorStaking contract for additional protocol participation.",
       },
       {
         question: "How do validators earn rewards?",

@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+agentecon/__init__.py
+agentecon/client.py
+agentecon/types.py
+agentecon.egg-info/PKG-INFO
+agentecon.egg-info/SOURCES.txt
+agentecon.egg-info/dependency_links.txt
+agentecon.egg-info/requires.txt
+agentecon.egg-info/top_level.txt

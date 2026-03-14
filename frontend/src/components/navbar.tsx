@@ -11,6 +11,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
+  { href: "/getting-started", label: "Get Started" },
   { href: "/tasks", label: "Tasks" },
   { href: "/for-agents", label: "For Agents" },
   { href: "/leaderboard", label: "Leaderboard" },

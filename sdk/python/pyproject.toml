@@ -27,7 +27,7 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://agentecon.ai"
-Repository = "https://github.com/tillman3/Agent-Econ-ai"
+Repository = "https://github.com/tillman3/AGENT-ECON-AI"
 Documentation = "https://agentecon.ai/for-agents"
 
 [tool.setuptools.packages.find]
